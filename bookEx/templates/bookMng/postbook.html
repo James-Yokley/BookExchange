@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sidenav %}
+   {% for item in item_list %}
+          <a class="nav-item btn btn-dark" href="{{ item.link }}"> {{ item.item }}</a>
+   {% endfor %}
+{% endblock sidenav %}
+
+
+
+{% block content %}
+   <h1 align="center"> Post a new Book</h1>
+{% if submitted %}
+  <h1> Posted Successfully</h1>
+{% else %}
+  <form action="" enctype="multipart/form-data" method="post" novalidate>
+
+      <table align="center" class="bg-dark text-white text-center">
+          {{ form.as_table }}
+          <tr>
+              <td colspan="2">
+                  <input class="btn btn-primary" type="submit" value="Submit">
+              </td>
+          </tr>
+      </table>
+
+      {% csrf_token %}
+  </form>
+{% endif %}
+{% endblock content%}

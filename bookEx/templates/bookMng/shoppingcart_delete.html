@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sidenav %}
+   {% for item in item_list %}
+       <li>
+          <a class="nav-item btn btn-dark" href="{{ item.link }}"> {{ item.item }}</a>
+       </li>
+   {% endfor %}
+{% endblock sidenav %}
+
+
+{% block content %}
+<div align="center">
+   <h2 align="center"> Book Deleted From shopping cart </h2>
+<a href="/shoppingcart" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true">Go to Shopping Cart</a>
+</div>
+{% endblock content%}

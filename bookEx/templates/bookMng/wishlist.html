@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sidenav %}
+   {% for item in item_list %}
+       <li>
+          <a class="nav-item btn btn-dark" href="{{ item.link }}"> {{ item.item }}</a>
+       </li>
+   {% endfor %}
+{% endblock sidenav %}
+
+{% block content %}
+    <h2 align="center">Wishlist</h2>
+<div align="center">
+{% if empty %}
+    You don't have any books in your wishlist.
+    <br>You can add books by searching or from the display books page.
+{% else %}
+   <table class="table table-striped bg-dark text-white" align="center" border="2" width="600">
+       <thead class="table-row">
+           <th class="text-white" scope="col"> Book Name </th>
+           <th class="text-white" scope="col"> Picture </th>
+           <th class="text-white" scope="col"> Uploaded by </th>
+       </thead>
+    {% for book in books %}
+       <tr class="table-row">
+           <td>
+              <a href="/book_detail/{{ book.id }}"> {{ book.name }} </a>
+           </td>
+           <td>
+               <img src="{% static book.pic_path %}" width="50" height="50">
+           </td>
+           <td class="text-white">
+               {{ book.username }}
+           </td>
+           <td>
+               <a class="btn btn-danger" href="/wishlist_delete/{{ book.id }}">Delete From Wishlist</a>
+           </td>
+       </tr>
+    {% endfor %}
+   </table>
+{% endif %}
+<br><br><a href="/displaybooks" class="btn btn-success btn-sm" role="button" aria-pressed="true">Browse Books</a>
+</div>
+{% endblock content%}

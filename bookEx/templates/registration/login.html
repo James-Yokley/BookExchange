@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sidenav %}
+       <li>
+          <a class="btn btn-dark" clhref="/"> Home </a>
+       </li>
+{% endblock sidenav %}
+
+{% block content %}
+   <h1 align="center"> User Login </h1>
+   <form action="{% url 'login' %}" method="post">
+      <table align="center">
+          {{ form.as_table }}
+          <tr>
+              <td></td>
+              <td>
+                  <input class="float-end btn btn-primary" type="submit" value="Login">
+              </td>
+          </tr>
+      </table>
+      <p align="center"> To Register <a href="{% url 'register' %}"> Click Here </a>
+      </p>
+      <input type="hidden" name="next" value="{{ next }}" />
+      {% csrf_token %}
+  </form>
+{% endblock content%}

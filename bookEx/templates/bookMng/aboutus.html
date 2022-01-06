@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sidenav %}
+   {% for item in item_list %}
+          <a class="nav-item btn btn-dark" href="{{ item.link }}"> {{ item.item }}</a>
+   {% endfor %}
+{% endblock sidenav %}
+
+
+{% block content %}
+   <h1 class="bg-white" align="center"> About Us </h1>
+    <div class="bg-white" align="center">
+    <p>
+        We are group 5 from CS3337, our names are:
+    </p>
+    <ul style="text-align:center; list-style-position:inside; ">
+        <li>Cesar Salazar</li>
+        <li>Jonathan Saldivar</li>
+        <li>Jorge Sanchez</li>
+        <li>Salman Sheikh</li>
+        <li>Kevin Trochez Grajeda</li>
+        <li>Maggie Yang</li>
+        <li>James Yokley</li>
+    </ul>
+    </div>
+{% endblock content%}

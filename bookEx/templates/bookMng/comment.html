@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sidenav %}
+   {% for item in item_list %}
+       <li>
+          <a href="{{ item.link }}"> {{ item.item }}</a>
+       </li>
+   {% endfor %}
+{% endblock sidenav %}
+
+{% block content %}
+    <h4>Add a Comment</h4>
+    <form action="" enctype="multipart/form-data" method='post' novalidate>
+        <table class='table-dark table-bordered'>
+                <tr>
+                    <td>Select a Book</td>
+<!--                    display all the books usering a selector-->
+                    <td>
+                        <select name="BookName" class="form-select">
+
+<!--                            <c:forEach items="${shots}" var="entry">-->
+<!--                                <c:if test="${entry.dosesLeft > 0}">-->
+<!--                                    <option>${entry.name}</option>-->
+<!--                                </c:if>-->
+<!--                            </c:forEach>-->
+
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Add a Comment: </td>
+                    <br>
+                    <br>
+                    <td><input type="text" name="comment" class="form-control"></td>
+                </tr>
+
+                <tr>
+                    <td colspan='2'>
+                        <a><button class='btn btn-success' >Add</button></a>
+                    </td>
+
+                </tr>
+
+            </table>
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sidenav %}
+   {% for item in item_list %}
+          <a class="nav-item btn btn-dark" href="{{ item.link }}"> {{ item.item }}</a>
+   {% endfor %}
+{% endblock sidenav %}
+
+
+
+{% block content %}
+   <h1 align="center"> Welcome to Group 5's Book Exchange System </h1>
+   <p align="center"> This system allows users to post and browse books.</p>
+{% endblock content%}
